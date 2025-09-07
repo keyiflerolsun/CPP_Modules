@@ -6,12 +6,11 @@
 /*   By: osancak <osancak@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/06 16:59:07 by osancak           #+#    #+#             */
-/*   Updated: 2025/09/07 11:30:16 by osancak          ###   ########.fr       */
+/*   Updated: 2025/09/07 14:13:13 by osancak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Contact.hpp"
-#include <iomanip>
 
 bool Contact::setFirstName(std::string first_name)
 {
@@ -33,6 +32,11 @@ bool Contact::setNickName(std::string nick_name)
 
 bool Contact::setPhoneNumber(std::string phone_number)
 {
+	if (!std::isdigit(phone_number[0]) && phone_number[0] != '+')
+		return (false);
+	for (size_t i = 1; i < phone_number.length(); ++i)
+		if (!std::isdigit(phone_number[i]))
+			return (false);
 	this->phone_number = phone_number;
 	return (true);
 }
@@ -45,11 +49,11 @@ bool Contact::setDarkSecret(std::string dark_secret)
 
 void Contact::printContact(void)
 {
-	std::cout << std::left << std::setw(12) << "First Name"   << " : " << first_name   << std::endl;
-	std::cout << std::left << std::setw(12) << "Last Name"    << " : " << last_name    << std::endl;
-	std::cout << std::left << std::setw(12) << "Nickname"     << " : " << nick_name    << std::endl;
-	std::cout << std::left << std::setw(12) << "Phone Number" << " : " << phone_number << std::endl;
-	std::cout << std::left << std::setw(12) << "Dark Secret"  << " : " << dark_secret  << std::endl;
+	std::cout << std::left << YELLOW << std::setw(12) << "First Name"   << " : " << CYAN << first_name   << std::endl;
+	std::cout << std::left << YELLOW << std::setw(12) << "Last Name"    << " : " << CYAN << last_name    << std::endl;
+	std::cout << std::left << YELLOW << std::setw(12) << "Nickname"     << " : " << CYAN << nick_name    << std::endl;
+	std::cout << std::left << YELLOW << std::setw(12) << "Phone Number" << " : " << CYAN << phone_number << std::endl;
+	std::cout << std::left << YELLOW << std::setw(12) << "Dark Secret"  << " : " << CYAN << dark_secret  << std::endl;
 }
 
 std::string truncateField(const std::string &str)

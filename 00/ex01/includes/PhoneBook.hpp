@@ -6,7 +6,7 @@
 /*   By: osancak <osancak@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/06 16:56:52 by osancak           #+#    #+#             */
-/*   Updated: 2025/09/07 11:17:39 by osancak          ###   ########.fr       */
+/*   Updated: 2025/09/07 14:17:21 by osancak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ class PhoneBook
 	PhoneBook();
 
 	void addContact(Contact contact);
-	void displayContacts();
+	bool displayContacts();
 	void searchContact(int index);
 };
 
