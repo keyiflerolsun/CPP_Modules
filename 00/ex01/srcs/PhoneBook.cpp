@@ -6,7 +6,7 @@
 /*   By: osancak <osancak@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/06 16:58:59 by osancak           #+#    #+#             */
-/*   Updated: 2025/09/07 14:29:22 by osancak          ###   ########.fr       */
+/*   Updated: 2025/09/07 16:28:34 by osancak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,17 +38,17 @@ bool PhoneBook::displayContacts(void)
 	}
 
 	std::cout << std::endl;
-    std::cout << BOLD_MAGENTA << std::setw(10) << "Index"      << YELLOW << "|" << RESET
-              << BOLD_MAGENTA << std::setw(10) << "First Name" << YELLOW << "|" << RESET
-              << BOLD_MAGENTA << std::setw(10) << "Last Name"  << YELLOW << "|" << RESET
-              << BOLD_MAGENTA << std::setw(10) << "Nickname"   << YELLOW << RESET << std::endl;
+    std::cout << BOLD_MAGENTA << std::right << std::setw(10) << "Index"      << YELLOW << "|" << RESET
+              << BOLD_MAGENTA << std::right << std::setw(10) << "First Name" << YELLOW << "|" << RESET
+              << BOLD_MAGENTA << std::right << std::setw(10) << "Last Name"  << YELLOW << "|" << RESET
+              << BOLD_MAGENTA << std::right << std::setw(10) << "Nickname"   << YELLOW << RESET << std::endl;
 
     for (int i = 0; i < this->contact_count; i++)
 	{
-        std::cout << CYAN << std::setw(10) << i                                     << YELLOW << "|" << RESET
-                  << CYAN << std::setw(10) << this->contacts[i].getShortFirstName() << YELLOW << "|" << RESET
-                  << CYAN << std::setw(10) << this->contacts[i].getShortLastName()  << YELLOW << "|" << RESET
-                  << CYAN << std::setw(10) << this->contacts[i].getShortNickName()  << YELLOW << RESET << std::endl;
+        std::cout << CYAN << std::right << std::setw(10) << i                                     << YELLOW << "|" << RESET
+                  << CYAN << std::right << std::setw(10) << this->contacts[i].getShortFirstName() << YELLOW << "|" << RESET
+                  << CYAN << std::right << std::setw(10) << this->contacts[i].getShortLastName()  << YELLOW << "|" << RESET
+                  << CYAN << std::right << std::setw(10) << this->contacts[i].getShortNickName()  << YELLOW << RESET << std::endl;
 	}
 
 	return (true);

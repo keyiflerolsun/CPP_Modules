@@ -6,43 +6,67 @@
 /*   By: osancak <osancak@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/06 16:59:07 by osancak           #+#    #+#             */
-/*   Updated: 2025/09/07 14:13:13 by osancak          ###   ########.fr       */
+/*   Updated: 2025/09/07 16:33:46 by osancak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Contact.hpp"
 
+bool	isNumber(const std::string str)
+{
+	if (str.empty())
+		return (false);
+
+    for (size_t i = 0; i < str.size(); ++i)
+	{
+		if (!std::isdigit(str[i]))
+			return (false);
+	}
+
+	return (true);
+}
+
 bool Contact::setFirstName(std::string first_name)
 {
+	if (isNumber(first_name))
+		return (false);
+
 	this->first_name = first_name;
 	return (true);
 }
 
 bool Contact::setLastName(std::string last_name)
 {
+	if (isNumber(last_name))
+		return (false);
+
 	this->last_name = last_name;
 	return (true);
 }
 
 bool Contact::setNickName(std::string nick_name)
 {
+	if (nick_name.empty())
+		return (false);
+
 	this->nick_name = nick_name;
 	return (true);
 }
 
 bool Contact::setPhoneNumber(std::string phone_number)
 {
-	if (!std::isdigit(phone_number[0]) && phone_number[0] != '+')
+	if (!isNumber(phone_number))
 		return (false);
-	for (size_t i = 1; i < phone_number.length(); ++i)
-		if (!std::isdigit(phone_number[i]))
-			return (false);
+
 	this->phone_number = phone_number;
 	return (true);
 }
 
 bool Contact::setDarkSecret(std::string dark_secret)
 {
+	if (dark_secret.empty())
+		return (false);
+
 	this->dark_secret = dark_secret;
 	return (true);
 }

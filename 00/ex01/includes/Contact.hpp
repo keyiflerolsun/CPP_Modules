@@ -6,7 +6,7 @@
 /*   By: osancak <osancak@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/06 16:57:35 by osancak           #+#    #+#             */
-/*   Updated: 2025/09/07 14:13:42 by osancak          ###   ########.fr       */
+/*   Updated: 2025/09/07 16:30:49 by osancak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,5 +48,7 @@ class Contact
 	std::string getShortLastName(void);
 	std::string getShortNickName(void);
 };
+
+bool	isNumber(const std::string str);
 
 #endif

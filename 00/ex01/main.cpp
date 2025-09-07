@@ -6,7 +6,7 @@
 /*   By: osancak <osancak@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/06 16:59:09 by osancak           #+#    #+#             */
-/*   Updated: 2025/09/07 14:17:39 by osancak          ###   ########.fr       */
+/*   Updated: 2025/09/07 16:32:59 by osancak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,23 +32,23 @@ void	addContact(PhoneBook *phonebook)
 
 	std::cout << YELLOW << std::setw(18) << "First Name" << ": " << RESET;
 	std::getline(std::cin, input);
-	if (input.empty() || !contact.setFirstName(input))
+	if (!contact.setFirstName(input))
 	{
-		std::cout << RED << "First name cannot be empty. Aborting ADD.\n" << RESET;
+		std::cout << RED << "First name is not valid. Aborting ADD.\n" << RESET;
 		return ;
 	}
 
 	std::cout << YELLOW << std::setw(18) << "Last Name" << ": " << RESET;
 	std::getline(std::cin, input);
-	if (input.empty() || !contact.setLastName(input))
+	if (!contact.setLastName(input))
 	{
-		std::cout << RED << "Last name cannot be empty. Aborting ADD.\n";
+		std::cout << RED << "Last name is not valid. Aborting ADD.\n";
 		return ;
 	}
 
 	std::cout << YELLOW << std::setw(18) << "Nickname" << ": " << RESET;
 	std::getline(std::cin, input);
-	if (input.empty() || !contact.setNickName(input))
+	if (!contact.setNickName(input))
 	{
 		std::cout << RED << "Nickname cannot be empty. Aborting ADD.\n";
 		return ;
@@ -56,7 +56,7 @@ void	addContact(PhoneBook *phonebook)
 
 	std::cout << YELLOW << std::setw(18) << "Phone Number" << ": " << RESET;
 	std::getline(std::cin, input);
-	if (input.empty() || !contact.setPhoneNumber(input))
+	if (!contact.setPhoneNumber(input))
 	{
 		std::cout << RED << "Phone number is not valid. Aborting ADD.\n";
 		return ;
@@ -64,27 +64,13 @@ void	addContact(PhoneBook *phonebook)
 
 	std::cout << YELLOW << std::setw(18) << "Darkest Secret" << ": " << RESET;
 	std::getline(std::cin, input);
-	if (input.empty() || !contact.setDarkSecret(input))
+	if (!contact.setDarkSecret(input))
 	{
 		std::cout << RED << "Darkest secret cannot be empty. Aborting ADD.\n";
 		return ;
 	}
 
 	phonebook->addContact(contact);
-}
-
-bool	isNumber(const std::string s)
-{
-	if (s.empty())
-		return (false);
-
-    for (size_t i = 0; i < s.size(); ++i)
-	{
-		if (!std::isdigit(s[i]))
-			return (false);
-	}
-
-	return (true);
 }
 
 void	searchContact(PhoneBook *phonebook)
