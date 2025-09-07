@@ -1,13 +1,17 @@
-CPPFILES = main.cpp \
-		   PhoneBook.cpp \
-		   Contact.cpp
+SRC_DIR = srcs
+INC_DIR = includes
+OBJ_DIR = obj
 
-OBJDIR = obj
-OBJS   = $(addprefix $(OBJDIR)/, $(CPPFILES:.cpp=.o))
+SRCS = $(SRC_DIR)/PhoneBook.cpp \
+	   $(SRC_DIR)/Contact.cpp \
+	   main.cpp
 
-NAME     = megaphone
+OBJS  = $(SRCS:.cpp=.o)
+OBJS := $(patsubst %.o, $(OBJ_DIR)/%.o, $(OBJS))
+
+NAME     = PhoneBook
 CXX      = c++
-CXXFLAGS = -Wall -Wextra -Werror -std=c++98
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -I$(INC_DIR)
 
 GREEN   = \033[0;32m
 YELLOW  = \033[0;33m
@@ -23,14 +27,14 @@ $(NAME): $(OBJS)
 	@printf "$(GREEN)» 📦 Creating  $(RESET)» $(MAGENTA)$(NAME)$(RESET)\n"
 	@$(CXX) $(CXXFLAGS) -o $(NAME) $(OBJS)
 
-$(OBJDIR)/%.o: %.cpp
-	@mkdir -p $(OBJDIR)
-	@printf "$(BLUE)» ⚙️  Compiling $(RESET)» $(YELLOW)%11s$(RESET) | $(GREEN)%s$(RESET)\n" "$<" "$@"
+$(OBJ_DIR)/%.o: %.cpp
+	@mkdir -p $(dir $@)
+	@printf "$(BLUE)» ⚙️  Compiling $(RESET)» $(YELLOW)%18s$(RESET) | $(GREEN)%s$(RESET)\n" "$<" "$@"
 	@$(CXX) $(CXXFLAGS) -c $< -o $@
 
 clean:
-	@printf "$(RED)» 🧹 Cleaning  $(RESET)» $(CYAN)./$(OBJDIR)$(RESET)\n"
-	@rm -rf $(OBJDIR)
+	@printf "$(RED)» 🧹 Cleaning  $(RESET)» $(CYAN)./$(OBJ_DIR)$(RESET)\n"
+	@rm -rf $(OBJ_DIR)
 
 fclean: clean
 	@printf "$(RED)» 🔥 Removing  $(RESET)» $(MAGENTA)$(NAME)$(RESET)\n"
