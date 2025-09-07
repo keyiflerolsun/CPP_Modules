@@ -6,7 +6,7 @@
 /*   By: osancak <osancak@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/06 16:56:52 by osancak           #+#    #+#             */
-/*   Updated: 2025/09/07 14:17:21 by osancak          ###   ########.fr       */
+/*   Updated: 2025/09/07 14:29:12 by osancak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,10 @@ class PhoneBook
 	int next_index;
 
   public:
-	PhoneBook();
+	PhoneBook(void);
 
 	void addContact(Contact contact);
-	bool displayContacts();
+	bool displayContacts(void);
 	void searchContact(int index);
 };
 

@@ -6,13 +6,13 @@
 /*   By: osancak <osancak@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/06 16:58:59 by osancak           #+#    #+#             */
-/*   Updated: 2025/09/07 14:18:31 by osancak          ###   ########.fr       */
+/*   Updated: 2025/09/07 14:29:22 by osancak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
 
-PhoneBook::PhoneBook()
+PhoneBook::PhoneBook(void)
 {
 	this->contact_count = 0;
 	this->next_index    = 0;
@@ -29,7 +29,7 @@ void PhoneBook::addContact(Contact contact)
 	std::cout << GREEN << "\nContact added successfully.\n\n" << RESET;
 }
 
-bool PhoneBook::displayContacts()
+bool PhoneBook::displayContacts(void)
 {
 	if (!this->contact_count)
 	{
