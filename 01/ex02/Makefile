@@ -1,16 +1,11 @@
-SRC_DIR = srcs
-INC_DIR = includes
-OBJ_DIR = obj
+CPPFILES = main.cpp
 
-SRCS = $(SRC_DIR)/Zombie.cpp \
-	   $(SRC_DIR)/zombieHorde.cpp \
-	   main.cpp
+OBJDIR = obj
+OBJS   = $(addprefix $(OBJDIR)/, $(CPPFILES:.cpp=.o))
 
-OBJS = $(addprefix $(OBJ_DIR)/, $(SRCS:.cpp=.o))
-
-NAME     = zombieHorde
+NAME     = brain
 CXX      = c++
-CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -I$(INC_DIR)
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
 GREEN   = \033[0;32m
 YELLOW  = \033[0;33m
@@ -26,14 +21,14 @@ $(NAME): $(OBJS)
 	@printf "$(GREEN)» 📦 Creating  $(RESET)» $(MAGENTA)$(NAME)$(RESET)\n"
 	@$(CXX) $(CXXFLAGS) -o $(NAME) $(OBJS)
 
-$(OBJ_DIR)/%.o: %.cpp
-	@mkdir -p $(dir $@)
-	@printf "$(BLUE)» ⚙️  Compiling $(RESET)» $(YELLOW)%22s$(RESET) | $(GREEN)%s$(RESET)\n" "$<" "$@"
+$(OBJDIR)/%.o: %.cpp
+	@mkdir -p $(OBJDIR)
+	@printf "$(BLUE)» ⚙️  Compiling $(RESET)» $(YELLOW)%11s$(RESET) | $(GREEN)%s$(RESET)\n" "$<" "$@"
 	@$(CXX) $(CXXFLAGS) -c $< -o $@
 
 clean:
-	@printf "$(RED)» 🧹 Cleaning  $(RESET)» $(CYAN)./$(OBJ_DIR)$(RESET)\n"
-	@rm -rf $(OBJ_DIR)
+	@printf "$(RED)» 🧹 Cleaning  $(RESET)» $(CYAN)./$(OBJDIR)$(RESET)\n"
+	@rm -rf $(OBJDIR)
 
 fclean: clean
 	@printf "$(RED)» 🔥 Removing  $(RESET)» $(MAGENTA)$(NAME)$(RESET)\n"
