@@ -26,7 +26,7 @@ $(NAME): $(OBJS)
 
 $(OBJ_DIR)/%.o: %.cpp
 	@mkdir -p $(dir $@)
-	@printf "$(BLUE)» ⚙️  Compiling $(RESET)» $(YELLOW)%12s$(RESET) | $(GREEN)%s$(RESET)\n" "$<" "$@"
+	@printf "$(BLUE)» ⚙️  Compiling $(RESET)» $(YELLOW)%10s$(RESET) | $(GREEN)%s$(RESET)\n" "$<" "$@"
 	@$(CXX) $(CXXFLAGS) -c $< -o $@
 
 clean:
