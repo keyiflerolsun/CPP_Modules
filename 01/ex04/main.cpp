@@ -6,13 +6,12 @@
 /*   By: osancak <osancak@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/09 11:09:23 by osancak           #+#    #+#             */
-/*   Updated: 2025/09/09 12:38:31 by osancak          ###   ########.fr       */
+/*   Updated: 2025/09/09 13:07:47 by osancak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <fstream>
-
 
 std::string ft_replace(std::string &content, std::string &old_word, std::string &new_word)
 {
