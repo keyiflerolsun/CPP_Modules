@@ -2,14 +2,11 @@ SRC_DIR = srcs
 INC_DIR = includes
 OBJ_DIR = obj
 
-SRCS = $(SRC_DIR)/Weapon.cpp \
-	   $(SRC_DIR)/HumanA.cpp \
-	   $(SRC_DIR)/HumanB.cpp \
-	   main.cpp
+SRCS = main.cpp
 
 OBJS = $(addprefix $(OBJ_DIR)/, $(SRCS:.cpp=.o))
 
-NAME     = weapon
+NAME     = loser
 CXX      = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -I$(INC_DIR)
 
@@ -29,7 +26,7 @@ $(NAME): $(OBJS)
 
 $(OBJ_DIR)/%.o: %.cpp
 	@mkdir -p $(dir $@)
-	@printf "$(BLUE)» ⚙️  Compiling $(RESET)» $(YELLOW)%16s$(RESET) | $(GREEN)%s$(RESET)\n" "$<" "$@"
+	@printf "$(BLUE)» ⚙️  Compiling $(RESET)» $(YELLOW)%12s$(RESET) | $(GREEN)%s$(RESET)\n" "$<" "$@"
 	@$(CXX) $(CXXFLAGS) -c $< -o $@
 
 clean:
