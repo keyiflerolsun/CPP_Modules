@@ -6,7 +6,7 @@
 /*   By: osancak <osancak@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 14:05:21 by osancak           #+#    #+#             */
-/*   Updated: 2025/09/08 20:16:12 by osancak          ###   ########.fr       */
+/*   Updated: 2025/09/09 11:05:53 by osancak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ class HumanA
 
 	void setName(std::string name);
 	std::string getName(void);
-	void setWeapon(Weapon weapon);
+	void setWeapon(Weapon &weapon);
 	void attack(void);
 };
 

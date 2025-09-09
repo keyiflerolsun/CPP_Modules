@@ -6,7 +6,7 @@
 /*   By: osancak <osancak@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 14:05:37 by osancak           #+#    #+#             */
-/*   Updated: 2025/09/08 20:16:05 by osancak          ###   ########.fr       */
+/*   Updated: 2025/09/09 11:05:56 by osancak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ std::string HumanA::getName(void)
 {
 	return (this->name);
 }
-void HumanA::setWeapon(Weapon weapon)
+void HumanA::setWeapon(Weapon &weapon)
 {
 	this->weapon = weapon;
 }

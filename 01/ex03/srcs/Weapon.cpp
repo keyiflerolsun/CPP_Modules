@@ -6,7 +6,7 @@
 /*   By: osancak <osancak@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 14:04:42 by osancak           #+#    #+#             */
-/*   Updated: 2025/09/08 19:49:36 by osancak          ###   ########.fr       */
+/*   Updated: 2025/09/09 11:07:06 by osancak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,6 @@
 Weapon::Weapon(std::string type)
 {
 	this->type = type;
-}
-
-Weapon::~Weapon()
-{
 }
 
 void Weapon::setType(std::string type)
