@@ -6,7 +6,7 @@
 /*   By: osancak <osancak@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 14:05:37 by osancak           #+#    #+#             */
-/*   Updated: 2025/09/09 11:05:56 by osancak          ###   ########.fr       */
+/*   Updated: 2025/09/09 15:48:07 by osancak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,5 @@ void HumanA::setWeapon(Weapon &weapon)
 
 void HumanA::attack(void)
 {
-	std::cout << this->name << " attacks with their " << this->weapon.getType() << std::endl;
+	std::cout << CYAN << this->name << YELLOW << " attacks with their " << GREEN << this->weapon.getType() << RESET << std::endl;
 }

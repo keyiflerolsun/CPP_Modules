@@ -1,41 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Weapon.hpp                                         :+:      :+:    :+:   */
+/*   Harl.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: osancak <osancak@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/08 14:05:14 by osancak           #+#    #+#             */
-/*   Updated: 2025/09/09 15:50:20 by osancak          ###   ########.fr       */
+/*   Created: 2025/09/09 13:36:01 by osancak           #+#    #+#             */
+/*   Updated: 2025/09/09 15:40:38 by osancak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WEAPON_HPP
-# define WEAPON_HPP
+#ifndef HARL_HPP
+# define HARL_HPP
+
+# include <iostream>
 
 # define RED          "\033[0;31m"
 # define GREEN        "\033[0;32m"
 # define YELLOW       "\033[0;33m"
 # define CYAN         "\033[0;36m"
 # define MAGENTA      "\033[0;35m"
-# define BLUE         "\033[0;34m"
-# define BOLD_RED     "\033[1;31m"
-# define BOLD_MAGENTA "\033[1;35m"
-# define BOLD_CYAN    "\033[1;36m"
 # define RESET        "\033[0m"
 
-# include <iostream>
-
-class Weapon
+class Harl
 {
   private:
-	std::string type;
+	void debug(void);
+	void info(void);
+	void warning(void);
+	void error(void);
 
   public:
-	Weapon(std::string type);
-
-	void setType(std::string type);
-	std::string getType(void);
+	void complain(std::string level);
 };
+
+typedef void (Harl::*HarlFunc)();
 
 #endif
