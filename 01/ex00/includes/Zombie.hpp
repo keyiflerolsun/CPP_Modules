@@ -6,7 +6,7 @@
 /*   By: osancak <osancak@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 12:53:08 by osancak           #+#    #+#             */
-/*   Updated: 2025/09/08 13:10:44 by osancak          ###   ########.fr       */
+/*   Updated: 2025/09/09 11:02:04 by osancak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ class Zombie
 	std::string name;
 
   public:
-	Zombie(std::string &name);
+	Zombie(std::string name);
 	~Zombie(void);
 
 	void announce(void);

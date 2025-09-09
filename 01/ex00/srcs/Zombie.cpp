@@ -6,13 +6,13 @@
 /*   By: osancak <osancak@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 12:53:15 by osancak           #+#    #+#             */
-/*   Updated: 2025/09/08 13:12:07 by osancak          ###   ########.fr       */
+/*   Updated: 2025/09/09 11:01:59 by osancak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
-Zombie::Zombie(std::string &name)
+Zombie::Zombie(std::string name)
 {
 	this->name = name;
 }
