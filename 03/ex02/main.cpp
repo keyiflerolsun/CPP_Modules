@@ -6,7 +6,7 @@
 /*   By: osancak <osancak@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/14 16:20:46 by osancak           #+#    #+#             */
-/*   Updated: 2025/09/14 18:17:02 by osancak          ###   ########.fr       */
+/*   Updated: 2025/09/14 18:30:14 by osancak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 int main(void)
 {
-    std::cout << "\n" << MAGENTA << "=== ClapTrap Testleri ===" << RESET << "\n\n";
+    std::cout << "\n" << MAGENTA << "=== ClapTrap ===" << RESET << "\n\n";
     ClapTrap clap("Clappy");
 
     clap.attack("Target1");
@@ -29,7 +29,7 @@ int main(void)
     clap.takeDamage(6);
     clap.beRepaired(2);
 
-    std::cout << "\n" << MAGENTA << "=== ScavTrap Testleri ===" << RESET << "\n\n";
+    std::cout << "\n" << MAGENTA << "=== ScavTrap ===" << RESET << "\n\n";
     ScavTrap scav("Scavy");
 
     scav.attack("Enemy1");
@@ -37,7 +37,7 @@ int main(void)
     scav.beRepaired(10);
     scav.guardGate();
 
-    std::cout << "\n" << MAGENTA << "=== FragTrap Testleri ===" << RESET << "\n\n";
+    std::cout << "\n" << MAGENTA << "=== FragTrap ===" << RESET << "\n\n";
     FragTrap frag("Fraggy");
 
     frag.attack("Boss1");
