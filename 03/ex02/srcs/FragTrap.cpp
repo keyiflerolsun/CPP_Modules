@@ -6,7 +6,7 @@
 /*   By: osancak <osancak@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/14 18:06:59 by osancak           #+#    #+#             */
-/*   Updated: 2025/09/14 18:10:19 by osancak          ###   ########.fr       */
+/*   Updated: 2025/09/14 18:28:57 by osancak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ FragTrap::FragTrap(const std::string &name) : ClapTrap(name)
 
 	this->name 		    = name;
 	this->hit_points    = 100;
-	this->energy_points = 50;
-	this->attack_damage = 20;
+	this->energy_points = 100;
+	this->attack_damage = 30;
 }
 
 FragTrap::FragTrap(const FragTrap &copy) : ClapTrap(copy)
