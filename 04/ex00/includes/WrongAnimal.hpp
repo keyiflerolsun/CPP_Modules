@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: osancak <osancak@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/14 21:11:22 by osancak           #+#    #+#             */
-/*   Updated: 2025/09/16 09:56:05 by osancak          ###   ########.fr       */
+/*   Created: 2025/09/16 10:00:55 by osancak           #+#    #+#             */
+/*   Updated: 2025/09/16 10:02:46 by osancak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-# define ANIMAL_HPP
+#ifndef WRONG_ANIMAL_HPP
+# define WRONG_ANIMAL_HPP
 
 # include <iostream>
 
@@ -23,19 +23,19 @@
 # define CYAN         "\033[0;36m"
 # define RESET        "\033[0m"
 
-class Animal
+class WrongAnimal
 {
   protected:
 	std::string type;
 
   public:
-  	Animal();
-	Animal(const Animal &copy);
-	Animal &operator = (const Animal &src);
-	virtual ~Animal();
+  	WrongAnimal();
+	WrongAnimal(const WrongAnimal &copy);
+	WrongAnimal &operator = (const WrongAnimal &src);
+	~WrongAnimal();
 
-	std::string		getType(void) const;
-	virtual void	makeSound(void) const;
+	std::string getType(void) const;
+	void		makeSound(void) const;
 };
 
 #endif

@@ -1,31 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*   wrong.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: osancak <osancak@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/14 21:11:40 by osancak           #+#    #+#             */
-/*   Updated: 2025/09/16 09:51:37 by osancak          ###   ########.fr       */
+/*   Created: 2025/09/16 10:08:40 by osancak           #+#    #+#             */
+/*   Updated: 2025/09/16 10:09:10 by osancak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DOG_HPP
-# define DOG_HPP
+#include "WrongCat.hpp"
 
-# include "Animal.hpp"
-
-class Dog : public Animal
+int main(void)
 {
-  public:
-  	Dog();
-	Dog(const Dog &copy);
-	Dog &operator = (const Dog &src);
-	~Dog();
+	const WrongAnimal *meta = new WrongAnimal();
+	const WrongAnimal *cati = new WrongCat();
 
-	std::string getType(void) const;
-	void 		makeSound(void) const;
-};
+	std::cout << cati->getType() << " " << std::endl;
 
-#endif
+	cati->makeSound();
+	meta->makeSound();
 
+	delete meta;
+	delete cati;
+	return (0);
+}

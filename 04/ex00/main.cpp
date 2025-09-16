@@ -6,7 +6,7 @@
 /*   By: osancak <osancak@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/14 21:11:12 by osancak           #+#    #+#             */
-/*   Updated: 2025/09/14 21:22:14 by osancak          ###   ########.fr       */
+/*   Updated: 2025/09/16 09:57:09 by osancak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,12 @@ int main(void)
 	std::cout << dogi->getType() << " " << std::endl;
 	std::cout << cati->getType() << " " << std::endl;
 
-	cati->makeSound(); //will output the cat sound!
+	cati->makeSound();
 	dogi->makeSound();
 	meta->makeSound();
 
+	delete meta;
+	delete dogi;
+	delete cati;
 	return (0);
 }

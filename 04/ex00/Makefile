@@ -7,9 +7,14 @@ SRCS = $(SRC_DIR)/Animal.cpp \
 	   $(SRC_DIR)/Cat.cpp \
 	   main.cpp
 
-OBJS = $(addprefix $(OBJ_DIR)/, $(SRCS:.cpp=.o))
+W_SRCS = $(SRC_DIR)/WrongAnimal.cpp \
+	   $(SRC_DIR)/WrongCat.cpp \
+	   wrong.cpp
 
-NAME     = fragtrap
+OBJS   = $(addprefix $(OBJ_DIR)/, $(SRCS:.cpp=.o))
+W_OBJS = $(addprefix $(OBJ_DIR)/, $(W_SRCS:.cpp=.o))
+
+NAME     = polymorphism
 CXX      = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -I$(INC_DIR)
 
@@ -26,6 +31,10 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	@printf "$(GREEN)» 📦 Creating  $(RESET)» $(MAGENTA)$(NAME)$(RESET)\n"
 	@$(CXX) $(CXXFLAGS) -o $(NAME) $(OBJS)
+
+w: $(W_OBJS)
+	@printf "$(GREEN)» 📦 Creating  $(RESET)» $(MAGENTA)wrongPoli$(RESET)\n"
+	@$(CXX) $(CXXFLAGS) -o wrongPoli $(W_OBJS)
 
 $(OBJ_DIR)/%.o: %.cpp
 	@mkdir -p $(dir $@)
