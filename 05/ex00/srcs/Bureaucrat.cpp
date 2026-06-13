@@ -12,16 +12,14 @@
 
 #include "Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat(const std::string &name, const int &grade) : name(name)
+Bureaucrat::Bureaucrat(const std::string &name, int grade) : name(name), grade(grade)
 {
     std::cout << GREEN << "Bureaucrat Default constructor called" << RESET << std::endl;
 
-    if (grade < 1)
+    if (this->grade < 1)
         throw Bureaucrat::GradeTooHighException();
-    if (grade > 150)
+    if (this->grade > 150)
         throw Bureaucrat::GradeTooLowException();
-
-    this->grade = grade;
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat &copy) : name(copy.name), grade(copy.grade)
@@ -72,4 +70,14 @@ std::ostream &operator<<(std::ostream &o, const Bureaucrat &b)
 {
     o << YELLOW << b.getName() << CYAN << ", bureaucrat grade " << MAGENTA << b.getGrade() << CYAN << "." << RESET;
     return (o);
+}
+
+const char *Bureaucrat::GradeTooHighException::what() const throw()
+{
+    return ("Grade is too high (Below 1)!");
+}
+
+const char *Bureaucrat::GradeTooLowException::what() const throw()
+{
+    return ("Grade is too low (Above 150)!");
 }
