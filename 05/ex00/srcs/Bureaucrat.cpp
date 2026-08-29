@@ -12,9 +12,39 @@
 
 #include "Bureaucrat.hpp"
 
+// Default constructor
+Bureaucrat::Bureaucrat() : name("Default Bureaucrat"), grade(150)
+{
+    std::cout << GREEN << "Bureaucrat Default constructor called [name=" << this->name << ", grade=" << this->grade << "]" << RESET << std::endl;
+}
+
+// Copy constructor
+Bureaucrat::Bureaucrat(const Bureaucrat &copy) : name(copy.name), grade(copy.grade)
+{
+    std::cout << BLUE << "Bureaucrat Copy constructor called [name=" << this->name << ", grade=" << this->grade << "]" << RESET << std::endl;
+}
+
+// Copy assignment operator
+Bureaucrat &Bureaucrat::operator=(const Bureaucrat &src)
+{
+    std::cout << MAGENTA << "Bureaucrat Copy assignment operator called [assigning name=" << src.name << ", grade=" << src.grade << " to name=" << this->name << ", old_grade=" << this->grade << "]" << RESET << std::endl;
+
+    if (this != &src) // Self-assignment guard
+        this->grade = src.grade;
+
+    return (*this); // Allow chained assignments
+}
+
+// Destructor
+Bureaucrat::~Bureaucrat()
+{
+    std::cout << GREY << "Bureaucrat Destructor called [name=" << this->name << ", grade=" << this->grade << "]" << RESET << std::endl;
+}
+
+// Parameterized constructor
 Bureaucrat::Bureaucrat(const std::string &name, int grade) : name(name), grade(grade)
 {
-    std::cout << GREEN << "Bureaucrat Default constructor called" << RESET << std::endl;
+    std::cout << GREEN << "Bureaucrat Parameterized constructor called [name=" << name << ", grade=" << grade << "]" << RESET << std::endl;
 
     if (this->grade < 1)
         throw Bureaucrat::GradeTooHighException();
@@ -22,54 +52,35 @@ Bureaucrat::Bureaucrat(const std::string &name, int grade) : name(name), grade(g
         throw Bureaucrat::GradeTooLowException();
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat &copy) : name(copy.name), grade(copy.grade)
+// Overload the insertion operator for Bureaucrat
+std::ostream &operator<<(std::ostream &o, const Bureaucrat &b)
 {
-    std::cout << BLUE << "Bureaucrat Copy constructor called" << RESET << std::endl;
+    o << YELLOW << b.getName() << CYAN << ", bureaucrat grade " << MAGENTA << b.getGrade() << CYAN << "." << RESET;
+    return (o); // Allow chained output
 }
 
-Bureaucrat &Bureaucrat::operator=(const Bureaucrat &src)
-{
-    std::cout << MAGENTA << "Bureaucrat Copy assignment operator called" << RESET << std::endl;
-
-    if (this != &src)
-        this->grade = src.grade;
-
-    return (*this);
-}
-
-Bureaucrat::~Bureaucrat()
-{
-    std::cout << RED << "Bureaucrat Destructor called" << RESET << std::endl;
-}
-
-std::string Bureaucrat::getName(void) const
+std::string Bureaucrat::getName() const
 {
     return (this->name);
 }
 
-int Bureaucrat::getGrade(void) const
+int Bureaucrat::getGrade() const
 {
     return (this->grade);
 }
 
-void Bureaucrat::incrementGrade(void)
+void Bureaucrat::incrementGrade()
 {
     if (this->grade - 1 < 1)
         throw Bureaucrat::GradeTooHighException();
     this->grade--;
 }
 
-void Bureaucrat::decrementGrade(void)
+void Bureaucrat::decrementGrade()
 {
     if (this->grade + 1 > 150)
         throw Bureaucrat::GradeTooLowException();
     this->grade++;
-}
-
-std::ostream &operator<<(std::ostream &o, const Bureaucrat &b)
-{
-    o << YELLOW << b.getName() << CYAN << ", bureaucrat grade " << MAGENTA << b.getGrade() << CYAN << "." << RESET;
-    return (o);
 }
 
 const char *Bureaucrat::GradeTooHighException::what() const throw()

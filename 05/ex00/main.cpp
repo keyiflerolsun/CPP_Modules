@@ -14,22 +14,30 @@
 
 int main(void)
 {
-    std::cout << CYAN << "=== TEST 1: Normal Bureaucrat ===" << RESET << std::endl;
+    std::cout << CYAN << "=== TEST 1: Normal Bürokrat & OCF Yapısı ===" << RESET << std::endl;
     try
     {
         Bureaucrat ismet("ismet", 10);
-
         std::cout << "[~] " << ismet << std::endl;
 
+        Bureaucrat def;
+        std::cout << "[~] Varsayılan (Default): " << def << std::endl;
+
+        Bureaucrat copy(ismet);
+        std::cout << "[~] ismet'in Kopyası: " << copy << std::endl;
+
+        def = ismet;
+        std::cout << "[~] Atama sonrası Varsayılan: " << def << std::endl;
+
         ismet.incrementGrade();
-        std::cout << "[-] " << ismet << std::endl;
+        std::cout << "[-] Derece Artırıldı (Değer Düştü): " << ismet << std::endl;
 
         ismet.decrementGrade();
-        std::cout << "[+] " << ismet << std::endl;
+        std::cout << "[+] Derece Düşürüldü (Değer Arttı): " << ismet << std::endl;
     }
     catch (const std::exception &e)
     {
-        std::cerr << RED << "[!] " << e.what() << RESET << std::endl;
+        std::cerr << RED << "[!] Hata Yakalandı: " << e.what() << RESET << std::endl;
     }
 
     std::cout << std::endl;
@@ -37,7 +45,7 @@ int main(void)
 
 
 
-    std::cout << CYAN << "=== TEST 2: Grade Too High ===" << RESET << std::endl;
+    std::cout << CYAN << "=== TEST 2: Derece Çok Yüksek (Grade Too High) ===" << RESET << std::endl;
     try
     {
         Bureaucrat mahmut("mahmut", 0);
@@ -45,7 +53,7 @@ int main(void)
     }
     catch (const std::exception &e)
     {
-        std::cerr << RED << "[!] " << e.what() << RESET << std::endl;
+        std::cerr << RED << "[!] Hata Yakalandı: " << e.what() << RESET << std::endl;
     }
 
     std::cout << std::endl;
@@ -53,23 +61,23 @@ int main(void)
 
 
 
-    std::cout << CYAN << "=== TEST 3: Overload ===" << RESET << std::endl;
+    std::cout << CYAN << "=== TEST 3: Derece Çok Düşük (Grade Too Low / Sınır Aşımı) ===" << RESET << std::endl;
     try
     {
         Bureaucrat hasan("hasan", 149);
         std::cout << "[~] " << hasan << std::endl;
 
         hasan.decrementGrade();
-        std::cout << "[+] " << hasan << std::endl;
+        std::cout << "[+] Derece Düşürüldü: " << hasan << std::endl;
 
-        std::cout << "[+] Test" << std::endl;
+        std::cout << "[~] Sınırı aşmak için tekrar düşürülüyor..." << std::endl;
         hasan.decrementGrade();
 
         std::cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << std::endl;
     }
     catch (const std::exception &e)
     {
-        std::cerr << RED << "[!] " << e.what() << RESET << std::endl;
+        std::cerr << RED << "[!] Hata Yakalandı: " << e.what() << RESET << std::endl;
     }
 
     return (0);

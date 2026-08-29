@@ -22,6 +22,7 @@
 # define BLUE         "\033[0;34m"
 # define MAGENTA      "\033[0;35m"
 # define CYAN         "\033[0;36m"
+# define GREY         "\033[90m"
 # define RESET        "\033[0m"
 
 class Bureaucrat
@@ -31,15 +32,17 @@ class Bureaucrat
     int               grade;
 
   public:
-    Bureaucrat(const std::string &name, int grade);
-    Bureaucrat(const Bureaucrat &copy);
-    Bureaucrat &operator=(const Bureaucrat &src);
-    ~Bureaucrat();
+    Bureaucrat();                                   // Default constructor
+    Bureaucrat(const Bureaucrat &copy);             // Copy constructor
+    Bureaucrat &operator=(const Bureaucrat &src);   // Copy assignment operator
+    ~Bureaucrat();                                  // Destructor
 
-    std::string getName(void) const;
-    int         getGrade(void) const;
-    void        incrementGrade(void);
-    void        decrementGrade(void);
+    Bureaucrat(const std::string &name, int grade); // Parameterized constructor
+
+    std::string getName() const;  // getters are const member functions
+    int         getGrade() const; // getters are const member functions
+    void        incrementGrade();
+    void        decrementGrade();
 
     class GradeTooHighException : public std::exception
     {
@@ -54,6 +57,7 @@ class Bureaucrat
     };
 };
 
+// Overload the insertion operator for Bureaucrat
 std::ostream &operator<<(std::ostream &o, const Bureaucrat &b);
 
 #endif
